@@ -5,7 +5,7 @@ def prompt
 
   student_ids = {}
 
-  CSV.foreach("data2.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
+  CSV.foreach("data1.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
     student_id = row[:student_id]
 
     unless student_ids.has_key? student_id
@@ -18,17 +18,24 @@ def prompt
   return student_ids
 end
 
-
 student_hash = prompt
 
-def generate_score(student_hash)
-  score = 0
+def generate_score(array_of_stuff)
+  return array_of_stuff.length
 
-  prompt.each do |key, value|
-    value.each do
-      score = score + 1
-    end
-    puts "#{key}'s score is #{score}"
-  end
+  # prompt.each do |key, value|
+  #   score = value.length
+  #
+  #   puts "#{key}'s score is #{score}"
+  #   student_score = {key => score}
+  #   puts student_score
+  #   return student_score
+  # end
 end
-generate_score(student_hash)
+
+# generate_score(student_hash)
+
+student_hash.each do |student_id, array_of_stuff|
+  score = generate_score(array_of_stuff)
+  puts "#{student_id}'s score is #{score}"
+end
