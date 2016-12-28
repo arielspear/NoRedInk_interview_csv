@@ -33,5 +33,6 @@ student_hash.each do |student_id, array_of_stuff|
 
   scores_by_student[student_id] = score
 end
+scores_by_student = (scores_by_student.sort_by {|_key, value| value}).reverse
 puts "#{scores_by_student} TADA!"
 # make hash, push key (student id) and value (score) into Hash
