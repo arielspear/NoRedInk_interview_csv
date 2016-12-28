@@ -11,10 +11,24 @@ def prompt
     unless student_ids.has_key? student_id
       student_ids[student_id] = []
     end
-    strand_questions = student_ids[student_id]
-    strand_questions.push Hash[row.headers[1..-1].zip(row)]
+    topic = student_ids[student_id]
+    topic.push Hash[row.headers[1..-1].zip(row)]
+
   end
-  pp student_ids
+  return student_ids
 end
 
-prompt
+
+student_hash = prompt
+
+def generate_score(student_hash)
+  score = 0
+
+  prompt.each do |key, value|
+    value.each do
+      score = score + 1
+    end
+    puts "#{key}'s score is #{score}"
+  end
+end
+generate_score(student_hash)
