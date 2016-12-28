@@ -24,7 +24,6 @@ def generate_score(array_of_stuff)
   return array_of_stuff.length
 end
 
-# generate_score(student_hash)
 scores_by_student = {}
 
 student_hash.each do |student_id, array_of_stuff|
@@ -35,4 +34,3 @@ student_hash.each do |student_id, array_of_stuff|
 end
 scores_by_student = (scores_by_student.sort_by {|_key, value| value}).reverse
 puts "#{scores_by_student} TADA!"
-# make hash, push key (student id) and value (score) into Hash
