@@ -22,20 +22,16 @@ student_hash = prompt
 
 def generate_score(array_of_stuff)
   return array_of_stuff.length
-
-  # prompt.each do |key, value|
-  #   score = value.length
-  #
-  #   puts "#{key}'s score is #{score}"
-  #   student_score = {key => score}
-  #   puts student_score
-  #   return student_score
-  # end
 end
 
 # generate_score(student_hash)
+scores_by_student = {}
 
 student_hash.each do |student_id, array_of_stuff|
   score = generate_score(array_of_stuff)
   puts "#{student_id}'s score is #{score}"
+
+  scores_by_student[student_id] = score
 end
+puts "#{scores_by_student} TADA!"
+# make hash, push key (student id) and value (score) into Hash
